@@ -310,6 +310,40 @@ footer > section:last-child > p {
 	cursor: pointer;
 }
 
+#nav-header-wrapper {
+	display: flex;
+	justify-content: space-between;
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+#nav-header-wrapper i::after {
+	content: 'menu';
+}
+.hidden {
+	position: absolute;
+	left: -9999px;
+}
+#toggle:checked ~ ul {
+	opacity: 1;
+    height: auto;
+}
+#toggle:checked ~ div i::after {
+	content: 'close';
+}
+nav.mobile ul {
+	padding: 0;
+}
+label {
+	display: flex;
+	align-items: center;
+}
+
+label i:hover {
+	cursor: pointer;
+}
+
 @media only screen and (max-width: 640px) {
 	nav.desktop {
 		display: none;
@@ -317,16 +351,18 @@ footer > section:last-child > p {
 	nav.mobile {
 		display: flex;
 		flex-direction: column;
-		background-color: rgb(25, 28, 35);
 	}
-	nav.mobile h2 {
-		color: white;
+	#nav-list {
+		opacity: 0;
+    	height: 0;
+		transition: opacity 1s ease-out;
+		padding-left: 40px;
 	}
-	nav.mobile ul {
-		padding: 0;
+	#nav-list a {
+		margin-left: 0;
 	}
 	main {
-	flex-direction: column;
+		flex-direction: column;
 	}
 	aside {
 		margin: 0;
@@ -359,6 +395,10 @@ footer > section:last-child > p {
 	}
 	footer section:first-child {
 		flex-direction: column;
+		border-style: solid;
+	}
+	footer section:first-child a {
+		display: none;
 	}
 	footer section:last-child {
 		flex-direction: column;
